@@ -46,6 +46,7 @@ export default function WedFlixLanding() {
             variant="outline"
             size="lg"
             className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#d0416a] transition-colors mx-40"
+            onClick={() => setShowComingSoon(true)}
           >
             Download App
           </Button>

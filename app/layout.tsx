@@ -13,21 +13,7 @@ export const metadata: Metadata = {
   description: 'Show your love on a billboard. WedFlix makes it easy. Premium billboard sites all over Metro Manila.',
   generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/images/wedflix-20logo-202.png',
   },
 }
 
