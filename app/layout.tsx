@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist, Geist_Mono, El_Messiri } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import Nav from '@/components/nav'
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const elMessiri = El_Messiri({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'WedFlix - Make your wedding unforgettable',
@@ -37,6 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans antialiased`}>
+        <Nav />
         {children}
         <Analytics />
       </body>

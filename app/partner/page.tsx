@@ -1,33 +1,19 @@
+"use client"
+
 import { Button } from '@/components/ui/button'
 import { Menu, Facebook, Instagram, Twitter, ArrowLeft } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { El_Messiri } from 'next/font/google'
+import { useState } from 'react'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
+
+const elMessiri = El_Messiri({ subsets: ['latin'] })
 
 export default function PartnerPage() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      {/* Navigation */}
-      <nav className="w-full bg-white border-b border-[#d8dce0]">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon">
-              <Menu className="h-5 w-5" />
-            </Button>
-            <Link href="/" className="text-2xl font-bold text-[#1c1c1c]">
-              wed<span className="italic">flix</span>
-            </Link>
-          </div>
-          <div className="flex items-center gap-6">
-            <Link href="/partner" className="text-[#6d6d6d] hover:text-[#1c1c1c] text-sm">
-              Be Our Partner
-            </Link>
-            <Link href="/about" className="text-[#6d6d6d] hover:text-[#1c1c1c] text-sm">
-              About Us
-            </Link>
-          </div>
-        </div>
-      </nav>
-
       {/* Back Button */}
       <div className="container mx-auto px-6 py-8">
         <Link href="/" className="inline-flex items-center text-[#6d6d6d] hover:text-[#1c1c1c]">
@@ -38,7 +24,7 @@ export default function PartnerPage() {
       {/* Main Content */}
       <main className="flex-1 flex flex-col items-center justify-center px-6 py-12">
         <div className="max-w-4xl w-full text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#664e41] mb-4 text-balance">
+          <h1 className={`text-center text-[#664e41] text-[40px] font-semibold leading-none ${elMessiri.className} mb-16`}>
             Download the WedFlix App Now!
           </h1>
           <p className="text-lg text-[#6d6d6d] mb-16">
@@ -131,20 +117,14 @@ export default function PartnerPage() {
           <div className="mb-12">
             <p className="text-[#664e41] mb-6">Follow us and keep updated!</p>
             <div className="flex items-center justify-center gap-6">
-              <Link href="#" className="hover:opacity-70 transition-opacity">
+              <Link href="https://www.facebook.com/profile.php?id=61583122208188" target="_blank" className="hover:opacity-70 transition-opacity">
                 <Facebook className="w-8 h-8 text-[#1c1c1c]" fill="currentColor" />
               </Link>
-              <Link href="#" className="hover:opacity-70 transition-opacity">
-                <Instagram className="w-8 h-8 text-[#1c1c1c]" />
-              </Link>
-              <Link href="#" className="hover:opacity-70 transition-opacity">
-                <Twitter className="w-8 h-8 text-[#1c1c1c]" fill="currentColor" />
-              </Link>
-              <Link href="#" className="hover:opacity-70 transition-opacity">
-                <svg className="w-8 h-8 text-[#1c1c1c]" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
-                </svg>
-              </Link>
+              <Instagram className="w-8 h-8 text-[#1c1c1c]" />
+              <Twitter className="w-8 h-8 text-[#1c1c1c]" fill="currentColor" />
+              <svg className="w-8 h-8 text-[#1c1c1c]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+              </svg>
             </div>
           </div>
         </div>
@@ -167,26 +147,37 @@ export default function PartnerPage() {
             <span className="text-sm">© WedFlix.ph</span>
             
             <div className="flex items-center gap-3">
-              <Link href="#" className="hover:opacity-80 transition-opacity">
+              <button onClick={() => setIsDialogOpen(true)} className="hover:opacity-80 transition-opacity">
                 <Image
                   src="/google-play-badge.png"
                   alt="Get it on Google Play"
                   width={120}
                   height={36}
                 />
-              </Link>
-              <Link href="#" className="hover:opacity-80 transition-opacity">
+              </button>
+              <button onClick={() => setIsDialogOpen(true)} className="hover:opacity-80 transition-opacity">
                 <Image
-                  src="/app-store-badge.svg"
+                  src="/app-store-badge.png"
                   alt="Download on App Store"
                   width={120}
                   height={36}
                 />
-              </Link>
+              </button>
             </div>
           </div>
         </div>
       </footer>
+
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Coming Soon</DialogTitle>
+            <DialogDescription>
+              This feature is coming soon. Stay tuned!
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }

@@ -1,9 +1,17 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { Menu, PenTool, Monitor, Upload, PartyPopper, Facebook, Instagram, Twitter, Clock, X } from 'lucide-react'
+import { Menu, PenTool, Monitor, Upload, PartyPopper, Facebook, Instagram, Twitter, Clock } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { El_Messiri } from 'next/font/google'
+import { useState } from 'react'
+import Autoplay from 'embla-carousel-autoplay'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel'
 import {
   Dialog,
   DialogContent,
@@ -11,54 +19,33 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { useState } from 'react'
+
+const elMessiri = El_Messiri({ subsets: ['latin'] })
 
 export default function WedFlixLanding() {
   const [showComingSoon, setShowComingSoon] = useState(false)
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white z-50 border-b border-[#d8dce0]">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon">
-              <Menu className="h-5 w-5" />
-            </Button>
-            <Link href="/" className="text-2xl font-bold text-[#1c1c1c]">
-              wed<span className="italic">flix</span>
-            </Link>
-          </div>
-          <div className="flex items-center gap-6">
-            <Link href="/partner" className="text-[#6d6d6d] hover:text-[#1c1c1c] text-sm">
-              Be Our Partner
-            </Link>
-            <Link href="/about" className="text-[#6d6d6d] hover:text-[#1c1c1c] text-sm">
-              About Us
-            </Link>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <section className="relative h-[600px] mt-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#d0416a]/80 to-[#d0416a]/90">
-          <Image
-            src="/happy-couple-looking-at-wedding-billboard-with-fal.jpg"
-            alt="Couple viewing wedding billboard"
-            fill
-            className="object-cover mix-blend-overlay"
+        <div className="absolute inset-0">
+          <video
+            src="/hero.mp4"
+            autoPlay
+            loop
+            muted
+            className="object-cover w-full h-full"
           />
         </div>
-        <div className="relative h-full container mx-auto px-6 flex flex-col justify-center items-start text-white">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 max-w-2xl text-balance">
+        <div className="relative h-full w-full flex flex-col justify-end items-start text-white pb-10" style={{ backgroundImage: 'url(/hero-bot-gradient.png)', backgroundRepeat: 'no-repeat', backgroundSize: '100% 50%', backgroundPosition: 'bottom' }}>
+          <h1 className={`text-white text-[60px] font-semibold leading-none ${elMessiri.className} mb-6 max-w-2xl mx-40`}>
             Make your<br />wedding unforgettable.
           </h1>
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#d0416a] transition-colors"
-            onClick={() => setShowComingSoon(true)}
+          <Button
+            variant="outline"
+            size="lg"
+            className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#d0416a] transition-colors mx-40"
           >
             Download App
           </Button>
@@ -68,29 +55,29 @@ export default function WedFlixLanding() {
       {/* Value Proposition */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#1c1c1c] text-balance">
+          <h2 className={`text-center text-[#664e41] text-[40px] font-semibold leading-none ${elMessiri.className} mb-16`}>
             Show your love on a billboard.<br />
             WedFlix makes it easy.
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-0 items-center max-w-6xl mx-auto">
             <div className="relative h-[600px]">
               <Image
-                src="/mobile-phone-showing-billboard-booking-interface-w.jpg"
+                src="/phone.png"
                 alt="WedFlix mobile app interface"
                 fill
                 className="object-contain"
               />
             </div>
-            
-            <div className="relative h-[600px]">
+
+            <div className="relative h-[400px]">
               <Image
-                src="/metro-manila-map-with-billboard-locations-marked.jpg"
+                src="/map.png"
                 alt="Metro Manila billboard locations"
                 fill
-                className="object-contain"
+                className="object-cover"
               />
-              <p className="text-center mt-8 text-[#6d6d6d]">
+              <p className="text-center mt-8 text-[#1c1c1c] text-[16px] font-normal leading-none">
                 Get access to premium billboard sites all over Metro Manila
               </p>
             </div>
@@ -101,7 +88,7 @@ export default function WedFlixLanding() {
       {/* How It Works */}
       <section className="py-20 bg-[#f8f8f8]">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#1c1c1c]">
+          <h2 className={`text-center text-[#664e41] text-[40px] font-semibold leading-none ${elMessiri.className} mb-16`}>
             How it works
           </h2>
           
@@ -159,45 +146,96 @@ export default function WedFlixLanding() {
 
       {/* Gallery Section */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#1c1c1c] text-balance">
+        <div className="w-full">
+          <h2 className={`text-center text-[#664e41] text-[40px] font-semibold leading-none ${elMessiri.className} mb-16`}>
             We help you light up the city with your love.
           </h2>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
-            <div className="relative aspect-[3/4] rounded-lg overflow-hidden">
-              <Image
-                src="/billboard-1.png"
-                alt="WedFlix billboard in urban setting"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative aspect-[3/4] rounded-lg overflow-hidden">
-              <Image
-                src="/billboard-2.png"
-                alt="WedFlix billboard at street level"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative aspect-[3/4] rounded-lg overflow-hidden">
-              <Image
-                src="/billboard-3.png"
-                alt="WedFlix billboard with gradient background"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative aspect-[3/4] rounded-lg overflow-hidden">
-              <Image
-                src="/billboard-4.png"
-                alt="WedFlix billboard on building"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
+
+          <Carousel
+            opts={{
+              align: 'start',
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 3000,
+              }),
+            ]}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              <CarouselItem className="pl-4 basis-auto">
+                <div className="relative overflow-hidden" style={{ width: '266px', height: '200px', flexShrink: 0, aspectRatio: '133/100' }}>
+                  <Image
+                    src="/home-row-images/1.png"
+                    alt="WedFlix billboard 1"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </CarouselItem>
+              <CarouselItem className="pl-4 basis-auto">
+                <div className="relative overflow-hidden" style={{ width: '266px', height: '200px', flexShrink: 0, aspectRatio: '133/100' }}>
+                  <Image
+                    src="/home-row-images/2.png"
+                    alt="WedFlix billboard 2"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </CarouselItem>
+              <CarouselItem className="pl-4 basis-auto">
+                <div className="relative overflow-hidden" style={{ width: '266px', height: '200px', flexShrink: 0, aspectRatio: '133/100' }}>
+                  <Image
+                    src="/home-row-images/3.png"
+                    alt="WedFlix billboard 3"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </CarouselItem>
+              <CarouselItem className="pl-4 basis-auto">
+                <div className="relative overflow-hidden" style={{ width: '266px', height: '200px', flexShrink: 0, aspectRatio: '133/100' }}>
+                  <Image
+                    src="/home-row-images/4.png"
+                    alt="WedFlix billboard 4"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </CarouselItem>
+              <CarouselItem className="pl-4 basis-auto">
+                <div className="relative overflow-hidden" style={{ width: '266px', height: '200px', flexShrink: 0, aspectRatio: '133/100' }}>
+                  <Image
+                    src="/home-row-images/5.png"
+                    alt="WedFlix billboard 5"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </CarouselItem>
+              <CarouselItem className="pl-4 basis-auto">
+                <div className="relative overflow-hidden" style={{ width: '266px', height: '200px', flexShrink: 0, aspectRatio: '133/100' }}>
+                  <Image
+                    src="/home-row-images/6.png"
+                    alt="WedFlix billboard 6"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </CarouselItem>
+              <CarouselItem className="pl-4 basis-auto">
+                <div className="relative overflow-hidden" style={{ width: '266px', height: '200px', flexShrink: 0, aspectRatio: '133/100' }}>
+                  <Image
+                    src="/home-row-images/7.png"
+                    alt="WedFlix billboard 7"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </CarouselItem>
+            </CarouselContent>
+          </Carousel>
         </div>
       </section>
 
@@ -207,7 +245,7 @@ export default function WedFlixLanding() {
           <div className="text-center mb-8">
             <p className="text-sm mb-4">Follow us and keep updated!</p>
             <div className="flex items-center justify-center gap-4">
-              <Link href="#" className="hover:opacity-80 transition-opacity">
+              <Link href="https://www.facebook.com/profile.php?id=61583122208188" target="_blank" className="hover:opacity-80 transition-opacity">
                 <Facebook className="w-6 h-6" />
               </Link>
               <Link href="#" className="hover:opacity-80 transition-opacity">
@@ -237,35 +275,28 @@ export default function WedFlixLanding() {
           </div>
           
           <div className="flex items-center justify-center gap-4 mt-6">
-            <Link href="#" className="hover:opacity-80 transition-opacity">
+            <button onClick={() => setShowComingSoon(true)} className="hover:opacity-80 transition-opacity">
               <Image
-                src="/app-store-badge.svg"
+                src="/app-store-badge.png"
                 alt="Download on App Store"
                 width={135}
-                height={40}
+                height={30}
               />
-            </Link>
-            <Link href="#" className="hover:opacity-80 transition-opacity">
+            </button>
+            <button onClick={() => setShowComingSoon(true)} className="hover:opacity-80 transition-opacity">
               <Image
                 src="/google-play-badge.png"
                 alt="Get it on Google Play"
                 width={135}
-                height={40}
+                height={30}
               />
-            </Link>
+            </button>
           </div>
         </div>
       </footer>
 
       <Dialog open={showComingSoon} onOpenChange={setShowComingSoon}>
         <DialogContent className="sm:max-w-md">
-          <button
-            onClick={() => setShowComingSoon(false)}
-            className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
-          >
-            <X className="h-6 w-6" />
-            <span className="sr-only">Close</span>
-          </button>
           <DialogHeader className="items-center space-y-4 pt-8">
             <div className="w-16 h-16 bg-[#d0416a] rounded-full flex items-center justify-center">
               <Clock className="w-8 h-8 text-white" />
@@ -279,6 +310,7 @@ export default function WedFlixLanding() {
           </DialogHeader>
         </DialogContent>
       </Dialog>
+
     </div>
   )
 }

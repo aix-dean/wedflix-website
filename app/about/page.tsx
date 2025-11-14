@@ -1,33 +1,23 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
-import { Menu, Heart, Star, Facebook, Instagram, Twitter, ArrowLeft } from 'lucide-react'
+import { Menu, Heart, Star, Facebook, Instagram, Twitter, ArrowLeft, Clock } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
 
 export default function AboutUsPage() {
+  const [showComingSoon, setShowComingSoon] = useState(false)
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white z-50 border-b border-[#d8dce0]">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon">
-              <Menu className="h-5 w-5" />
-            </Button>
-            <Link href="/" className="text-2xl font-bold text-[#1c1c1c]">
-              wed<span className="italic">flix</span>
-            </Link>
-          </div>
-          <div className="flex items-center gap-6">
-            <Link href="#" className="text-[#6d6d6d] hover:text-[#1c1c1c] text-sm">
-              {"Be Our Partner"}  
-            </Link>
-            <Link href="#" className="text-[#6d6d6d] hover:text-[#1c1c1c] text-sm">
-              About Us 
-            </Link>
-          </div>
-        </div>
-      </nav>
-
       {/* Main Content */}
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-6 max-w-4xl">
@@ -42,9 +32,9 @@ export default function AboutUsPage() {
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/wedflix%20logo%202-P9MdrS4U5jflecgmNPFGyfPwWLSZTe.png"
                 alt="WedFlix Logo"
-                width={400}
-                height={120}
-                className="w-full max-w-md mx-auto h-auto"
+                width={342}
+                height={187}
+                className="flex-shrink-0"
                 priority
               />
             </div>
@@ -124,7 +114,7 @@ export default function AboutUsPage() {
           <div className="text-center">
             <p className="text-sm text-[#6d6d6d] mb-4">Follow us and keep updated!</p>
             <div className="flex items-center justify-center gap-4">
-              <Link href="#" className="hover:opacity-80 transition-opacity">
+              <Link href="https://www.facebook.com/profile.php?id=61583122208188" target="_blank" className="hover:opacity-80 transition-opacity">
                 <Facebook className="w-6 h-6 text-[#1c1c1c]" />
               </Link>
               <Link href="#" className="hover:opacity-80 transition-opacity">
@@ -159,16 +149,16 @@ export default function AboutUsPage() {
           </div>
           
           <div className="flex items-center justify-center gap-4">
-            <Link href="#" className="hover:opacity-80 transition-opacity">
+            <button onClick={() => setShowComingSoon(true)} className="hover:opacity-80 transition-opacity">
               <Image
-                src="/app-store-badge.svg"
+                src="/app-store-badge.png"
                 alt="Download on App Store"
                 width={135}
                 height={40}
                 className="h-10 w-auto"
               />
-            </Link>
-            <Link href="#" className="hover:opacity-80 transition-opacity">
+            </button>
+            <button onClick={() => setShowComingSoon(true)} className="hover:opacity-80 transition-opacity">
               <Image
                 src="/google-play-badge.png"
                 alt="Get it on Google Play"
@@ -176,10 +166,26 @@ export default function AboutUsPage() {
                 height={40}
                 className="h-10 w-auto"
               />
-            </Link>
+            </button>
           </div>
         </div>
       </footer>
+
+      <Dialog open={showComingSoon} onOpenChange={setShowComingSoon}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader className="items-center space-y-4 pt-8">
+            <div className="w-16 h-16 bg-[#d0416a] rounded-full flex items-center justify-center">
+              <Clock className="w-8 h-8 text-white" />
+            </div>
+            <DialogTitle className="text-4xl font-bold text-[#664e41] text-center">
+              Coming Soon!
+            </DialogTitle>
+            <DialogDescription className="text-center text-[#6d6d6d] text-base px-4">
+              We're excited to bring this feature to you very soon!
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }
