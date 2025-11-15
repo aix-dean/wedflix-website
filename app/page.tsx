@@ -28,7 +28,7 @@ export default function WedFlixLanding() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-[600px] mt-16 overflow-hidden">
+      <section className="relative h-[400px] md:h-[600px] mt-16 overflow-hidden">
         <div className="absolute inset-0">
           <video
             src="/hero.mp4"
@@ -39,13 +39,13 @@ export default function WedFlixLanding() {
           />
         </div>
         <div className="relative h-full w-full flex flex-col justify-end items-start text-white pb-10" style={{ backgroundImage: 'url(/hero-bot-gradient.png)', backgroundRepeat: 'no-repeat', backgroundSize: '100% 50%', backgroundPosition: 'bottom' }}>
-          <h1 className={`text-white text-[60px] font-semibold leading-none ${elMessiri.className} mb-6 max-w-2xl mx-40`}>
+          <h1 className={`text-white text-4xl md:text-[60px] font-semibold leading-none ${elMessiri.className} mb-6 max-w-2xl mx-4 md:mx-40`}>
             Make your<br />wedding unforgettable.
           </h1>
           <Button
             variant="outline"
             size="lg"
-            className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#d0416a] transition-colors mx-40"
+            className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#d0416a] transition-colors mx-4 md:mx-40"
             onClick={() => setShowComingSoon(true)}
           >
             Download App
