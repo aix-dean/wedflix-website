@@ -36,40 +36,25 @@ export default function PartnerPage() {
             {/* Google Play */}
             <div className="flex flex-col items-center">
               <div className="flex items-center gap-3 mb-6">
-                <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-                  <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92z" fill="#32BBFF"/>
-                  <path d="M14.5 12.707l3.076 3.076-10.967 6.34L14.5 12.707z" fill="#F4B400"/>
-                  <path d="M17.576 8.217L20.5 9.897c.5.29.5.76 0 1.05l-2.924 1.68-3.076-3.076 3.076-3.076z" fill="#F4B400"/>
-                  <path d="M14.5 11.293L6.609 3.402l10.967 6.34L14.5 11.293z" fill="#0F9D58"/>
-                </svg>
+                <Image
+                  src="/google-play.png"
+                  alt="Google Play"
+                  width={32}
+                  height={32}
+                />
                 <span className="font-semibold text-[#1c1c1c]">Google Play</span>
               </div>
-              <div className="bg-white border-2 border-[#d8dce0] rounded-lg p-6 mb-4 w-48 h-48 flex items-center justify-center">
-                <div className="w-full h-full bg-[#1c1c1c]">
-                  {/* QR Code placeholder */}
-                  <svg viewBox="0 0 100 100" className="w-full h-full">
-                    <rect width="100" height="100" fill="white"/>
-                    <g fill="black">
-                      {/* QR code pattern simulation */}
-                      <rect x="10" y="10" width="10" height="10"/>
-                      <rect x="30" y="10" width="10" height="10"/>
-                      <rect x="50" y="10" width="10" height="10"/>
-                      <rect x="70" y="10" width="10" height="10"/>
-                      <rect x="10" y="30" width="10" height="10"/>
-                      <rect x="50" y="30" width="10" height="10"/>
-                      <rect x="70" y="30" width="10" height="10"/>
-                      <rect x="10" y="50" width="10" height="10"/>
-                      <rect x="30" y="50" width="10" height="10"/>
-                      <rect x="70" y="50" width="10" height="10"/>
-                      <rect x="10" y="70" width="10" height="10"/>
-                      <rect x="30" y="70" width="10" height="10"/>
-                      <rect x="50" y="70" width="10" height="10"/>
-                      <rect x="70" y="70" width="10" height="10"/>
-                    </g>
-                  </svg>
+              <div className="bg-white border-2 border-[#d8dce0] rounded-lg p-2 mb-4 w-48 h-48 flex items-center justify-center">
+                <div className="w-full h-full relative">
+                  <Image
+                    src="/wedflix-googleplay-qr.png"
+                    alt="Google Play QR Code"
+                    fill
+                    className="object-contain"
+                  />
                 </div>
               </div>
-              <Link href="#" className="text-[#d0416a] font-medium hover:underline">
+              <Link href="https://bit.ly/wedflix" target="_blank" className="text-[#d0416a] font-medium hover:underline">
                 Download
               </Link>
             </div>
@@ -83,33 +68,8 @@ export default function PartnerPage() {
                 <span className="font-semibold text-[#1c1c1c]">App Store</span>
               </div>
               <div className="bg-white border-2 border-[#d8dce0] rounded-lg p-6 mb-4 w-48 h-48 flex items-center justify-center">
-                <div className="w-full h-full bg-[#1c1c1c]">
-                  {/* QR Code placeholder */}
-                  <svg viewBox="0 0 100 100" className="w-full h-full">
-                    <rect width="100" height="100" fill="white"/>
-                    <g fill="black">
-                      {/* QR code pattern simulation */}
-                      <rect x="10" y="10" width="10" height="10"/>
-                      <rect x="30" y="10" width="10" height="10"/>
-                      <rect x="50" y="10" width="10" height="10"/>
-                      <rect x="70" y="10" width="10" height="10"/>
-                      <rect x="10" y="30" width="10" height="10"/>
-                      <rect x="50" y="30" width="10" height="10"/>
-                      <rect x="70" y="30" width="10" height="10"/>
-                      <rect x="10" y="50" width="10" height="10"/>
-                      <rect x="30" y="50" width="10" height="10"/>
-                      <rect x="70" y="50" width="10" height="10"/>
-                      <rect x="10" y="70" width="10" height="10"/>
-                      <rect x="30" y="70" width="10" height="10"/>
-                      <rect x="50" y="70" width="10" height="10"/>
-                      <rect x="70" y="70" width="10" height="10"/>
-                    </g>
-                  </svg>
-                </div>
+                <span className="text-center text-[#6d6d6d]">Coming Soon</span>
               </div>
-              <Link href="#" className="text-[#d0416a] font-medium hover:underline">
-                Download
-              </Link>
             </div>
           </div>
 
