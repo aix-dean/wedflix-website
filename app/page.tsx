@@ -1,29 +1,23 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { Menu, PenTool, Monitor, Upload, PartyPopper, Facebook, Instagram, Twitter, Clock } from 'lucide-react'
+import { Menu, PenTool, Monitor, Upload, PartyPopper, Facebook, Instagram, Twitter } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { El_Messiri } from 'next/font/google'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Autoplay from 'embla-carousel-autoplay'
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel'
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog'
 
 const elMessiri = El_Messiri({ subsets: ['latin'] })
 
 export default function WedFlixLanding() {
-  const [showComingSoon, setShowComingSoon] = useState(false)
+  const router = useRouter()
 
   return (
     <div className="min-h-screen bg-white">
@@ -46,7 +40,7 @@ export default function WedFlixLanding() {
             variant="outline"
             size="lg"
             className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#d0416a] transition-colors mx-4 md:mx-40"
-            onClick={() => setShowComingSoon(true)}
+            onClick={() => router.push('/download')}
           >
             Download App
           </Button>
@@ -276,7 +270,7 @@ export default function WedFlixLanding() {
           </div>
           
           <div className="flex items-center justify-center gap-4 mt-6">
-            <button onClick={() => setShowComingSoon(true)} className="hover:opacity-80 transition-opacity">
+            <button onClick={() => router.push('/partner')} className="hover:opacity-80 transition-opacity">
               <Image
                 src="/app-store-badge.png"
                 alt="Download on App Store"
@@ -284,7 +278,7 @@ export default function WedFlixLanding() {
                 height={30}
               />
             </button>
-            <button onClick={() => setShowComingSoon(true)} className="hover:opacity-80 transition-opacity">
+            <button onClick={() => router.push('/partner')} className="hover:opacity-80 transition-opacity">
               <Image
                 src="/google-play-badge.png"
                 alt="Get it on Google Play"
@@ -296,21 +290,6 @@ export default function WedFlixLanding() {
         </div>
       </footer>
 
-      <Dialog open={showComingSoon} onOpenChange={setShowComingSoon}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader className="items-center space-y-4 pt-8">
-            <div className="w-16 h-16 bg-[#d0416a] rounded-full flex items-center justify-center">
-              <Clock className="w-8 h-8 text-white" />
-            </div>
-            <DialogTitle className="text-4xl font-bold text-[#664e41] text-center">
-              Coming Soon!
-            </DialogTitle>
-            <DialogDescription className="text-center text-[#6d6d6d] text-base px-4">
-              We're excited to bring this feature to you very soon!
-            </DialogDescription>
-          </DialogHeader>
-        </DialogContent>
-      </Dialog>
 
     </div>
   )
