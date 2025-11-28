@@ -47,14 +47,14 @@ export default function PartnerPage() {
               <div className="bg-white border-2 border-[#d8dce0] rounded-lg p-2 mb-4 w-48 h-48 flex items-center justify-center">
                 <div className="w-full h-full relative">
                   <Image
-                    src="/wedflix-googleplay-qr.png"
+                    src="/wedflix-playstore-qr.png"
                     alt="Google Play QR Code"
                     fill
                     className="object-contain"
                   />
                 </div>
               </div>
-              <Link href="https://bit.ly/wedflix" target="_blank" className="text-[#d0416a] font-medium hover:underline">
+              <Link href="https://storage.googleapis.com/wedflix/wedflix.apk" className="text-[#d0416a] font-medium hover:underline">
                 Download
               </Link>
             </div>
