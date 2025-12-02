@@ -7,10 +7,12 @@ import Link from 'next/link'
 import { El_Messiri } from 'next/font/google'
 import { useState } from 'react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
+import { useDownloadCount } from '@/hooks/useDownloadCount'
 
 const elMessiri = El_Messiri({ subsets: ['latin'] })
 
 export default function PartnerPage() {
+  const { count, loading, error, increment } = useDownloadCount()
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   return (
     <div className="min-h-screen bg-white flex flex-col">
@@ -54,9 +56,22 @@ export default function PartnerPage() {
                   />
                 </div>
               </div>
-              <Link href="https://storage.googleapis.com/wedflix/wedflix.apk" className="text-[#d0416a] font-medium hover:underline">
+              <Link href="https://storage.googleapis.com/wedflix/wedflix.apk" onClick={() => increment()} className="text-[#d0416a] font-medium hover:underline">
                 Download
               </Link>
+              {/* <div className="flex flex-col items-center gap-2 mt-2">
+                <div className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7,10 12,15 17,10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  <span className="text-sm font-medium text-muted-foreground">Total Downloads</span>
+                </div>
+                <span className="inline-flex items-center justify-center rounded-md border w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90 px-4 py-2 text-lg font-bold">
+                  {loading ? 'Loading...' : error ? `Error: ${error}` : count}
+                </span>
+              </div> */}
             </div>
 
             {/* App Store */}
