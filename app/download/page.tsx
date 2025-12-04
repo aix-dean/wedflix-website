@@ -56,7 +56,7 @@ export default function PartnerPage() {
                   />
                 </div>
               </div>
-              <Link href="https://storage.googleapis.com/wedflix/wedflix.apk" onClick={() => increment()} className="text-[#d0416a] font-medium hover:underline">
+              <Link href="https://play.google.com/store/apps/details?id=com.aix.wedflix&pcampaignid=web_share" onClick={() => increment()} className="text-[#d0416a] font-medium hover:underline">
                 Download
               </Link>
               {/* <div className="flex flex-col items-center gap-2 mt-2">
